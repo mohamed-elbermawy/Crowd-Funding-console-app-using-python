@@ -1,0 +1,32 @@
+[
+  { "fname": "a", "lname": "x", "email": "z", "password": "c", "phone": "123" },
+  { "fname": "q", "lname": "w", "email": "e", "password": "r", "phone": "t" },
+  {
+    "fname": "khalid",
+    "lname": "ashraf",
+    "email": "k@gmail.com",
+    "password": "123",
+    "phone": "000"
+  },
+  {
+    "fname": "as",
+    "lname": "sad",
+    "email": "a@gmail.com",
+    "password": "123",
+    "phone": "01124031914"
+  },
+  {
+    "fname": "mohamed ashraf",
+    "lname": "taha",
+    "email": "t@gmail.com",
+    "password": "123",
+    "phone": "01124031914"
+  },
+  {
+    "fname": "test",
+    "lname": "ashraf",
+    "email": "t@gmail.com",
+    "password": "123",
+    "phone": "01124031914"
+  }
+]
