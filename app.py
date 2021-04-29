@@ -29,11 +29,26 @@ while True:
         new_user["lname"] = lname
 
         while True:
+            flag =False
             email = input("Enter Your Email : ")
             if re.search(email_regix,email):
-                new_user["email"] = email
-                break
-            print("Email not valid try again")
+                flag = True
+
+                db = open("usersdb.json",'r')
+                data = db.read()
+                db.close()
+
+                users = json.loads(data)
+
+                for user in users:
+                    if user['email'] == email:
+                        print("Email must be unique try again")
+                        break
+                else:
+                    new_user["email"] = email
+                    break
+            if not flag:
+                print("Email not valid try again")
 
         while True:
             password = input("Enter Your Password : ")
@@ -99,9 +114,22 @@ while True:
                         print("Create Project")
                         print("----------------")
                         
-                        print("--------------------------------")
-                        title = input("Enter Project Title : ")
-                        new_project["title"] = title
+                        db = open("projectsdb.json",'r')
+                        data = db.read()
+                        db.close()
+
+                        projects = json.loads(data)
+
+                        while True:
+                            title = input("Enter Project Title : ")
+                            if title:
+                                for project in projects:
+                                    if project['title'] == title:
+                                        print("Project Title must be unique")
+                                        break
+                                else:
+                                    new_project["title"] = title
+                                    break
 
                         details = input("Enter Project Details : ")
                         new_project["details"] = details
@@ -131,11 +159,6 @@ while True:
 
                         print("--------------------------------")
 
-                        db = open("projectsdb.json",'r')
-                        data = db.read()
-                        db.close()
-
-                        projects = json.loads(data)
                         projects.append(new_project)
 
                         db = open("projectsdb.json",'w')
